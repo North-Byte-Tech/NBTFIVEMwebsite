@@ -10,7 +10,7 @@ import {
   type FormFieldDefinition,
 } from "@/lib/applicationTypes";
 
-const STORAGE_KEY = "sa1r-admin-form-builder";
+const STORAGE_KEY = "nbt-admin-form-builder";
 
 type FieldTemplate = {
   name: string;
@@ -59,7 +59,7 @@ export function FormBuilderEditor() {
 
   useEffect(() => {
     saveStoredApplicationTypes(types);
-    window.dispatchEvent(new Event("sa1r-form-builder-updated"));
+    window.dispatchEvent(new Event("nbt-form-builder-updated"));
   }, [types]);
 
   const selectedType = useMemo(

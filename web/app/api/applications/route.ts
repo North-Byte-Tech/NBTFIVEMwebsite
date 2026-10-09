@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     });
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[sa1r-web] /api/applications failed:", err);
+    console.error("[nbt-web] /api/applications failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

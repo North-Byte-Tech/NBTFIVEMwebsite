@@ -4,15 +4,15 @@ import { PermissionFlagsBits, SlashCommandBuilder } from "discord.js";
 // granted from Discord ever reaching the database. Agency names match
 // database/migrations/0003_agencies.sql's seed.
 const PERMISSION_CHOICES = [
-    { name: "LEO", value: "sa1r.role.police" },
-    { name: "Fire & Rescue (SAFD)", value: "sa1r.role.fire" },
-    { name: "EMS", value: "sa1r.role.stjohn" },
-    { name: "Corrections", value: "sa1r.role.corrections" },
-    { name: "Emergency Management", value: "sa1r.role.civildefence" },
-    { name: "Staff: Agency HR (hire/fire/promote)", value: "sa1r.staff.hr" },
-    { name: "Staff: Vehicles (givevehicle)", value: "sa1r.staff.vehicles" },
-    { name: "Staff: AOP / Priority (/aop, /priority staff actions)", value: "sa1r.staff.aop" },
-    { name: "Staff: Admin Menu (permissions, AOP, player actions, catalogs)", value: "sa1r.staff.admin" },
+    { name: "LEO", value: "nbt.role.police" },
+    { name: "Fire & Rescue (SAFD)", value: "nbt.role.fire" },
+    { name: "EMS", value: "nbt.role.stjohn" },
+    { name: "Corrections", value: "nbt.role.corrections" },
+    { name: "Emergency Management", value: "nbt.role.civildefence" },
+    { name: "Staff: Agency HR (hire/fire/promote)", value: "nbt.staff.hr" },
+    { name: "Staff: Vehicles (givevehicle)", value: "nbt.staff.vehicles" },
+    { name: "Staff: AOP / Priority (/aop, /priority staff actions)", value: "nbt.staff.aop" },
+    { name: "Staff: Admin Menu (permissions, AOP, player actions, catalogs)", value: "nbt.staff.admin" },
 ];
 export const commands = [
     new SlashCommandBuilder()

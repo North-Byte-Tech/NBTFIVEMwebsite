@@ -8,12 +8,12 @@ export interface DepartmentImage {
 }
 
 const LAW_ENFORCEMENT_IMAGE: DepartmentImage = {
-  src: "/sa1r-gallery-02.jpg",
+  src: "/nbt-gallery-02.jpg",
   alt: "A San Andreas police patrol vehicle responding on a rural highway",
 };
 
 const EMERGENCY_RESPONSE_IMAGE: DepartmentImage = {
-  src: "/sa1r-gallery-08.webp",
+  src: "/nbt-gallery-08.webp",
   alt: "A San Andreas Fire and Rescue vehicle at a rural response scene",
 };
 
@@ -23,17 +23,17 @@ export function getDepartmentImage(code: DepartmentCode): DepartmentImage {
       return LAW_ENFORCEMENT_IMAGE;
     case "DISPATCH":
       return {
-        src: "/sa1r-gallery-05.webp",
+        src: "/nbt-gallery-05.webp",
         alt: "Police and fire units coordinating at a multi-agency scene",
       };
     case "SAEMS":
       return {
-        src: "/sa1r-gallery-01.webp",
+        src: "/nbt-gallery-01.webp",
         alt: "Fire chief and responder coordinating beside a marked response vehicle",
       };
     case "CIV":
       return {
-        src: "/sa1r-gallery-03.webp",
+        src: "/nbt-gallery-03.webp",
         alt: "Two residents meeting beside a vehicle in San Andreas",
       };
     case "SAFD":
@@ -110,7 +110,7 @@ export const DEFAULT_DEPARTMENTS: DepartmentInfo[] = [
     summary: "Fire, EMS, and dispatch operations covering emergency response, medical support, and coordinated incident command.",
     features: ["Fire & rescue response", "EMS support operations", "Dispatch & incident coordination"],
     accent: "red",
-    externalSiteUrl: "https://fire.sa1r.com",
+    externalSiteUrl: "https://fire.nbt.gg",
     ranks: [],
     requirements: [],
   },
@@ -136,7 +136,7 @@ export const DEFAULT_DEPARTMENTS: DepartmentInfo[] = [
   },
 ];
 
-export const DEPARTMENTS_STORAGE_KEY = "sa1r-admin-departments";
+export const DEPARTMENTS_STORAGE_KEY = "nbt-admin-departments";
 
 export function getStoredDepartments(): DepartmentInfo[] {
   if (typeof window === "undefined") {

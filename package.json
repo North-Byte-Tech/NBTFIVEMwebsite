@@ -1,12 +1,12 @@
 {
-  "name": "sa1r-website",
+  "name": "nbt-website",
   "private": true,
   "version": "0.1.0",
   "packageManager": "pnpm@9.15.9",
   "scripts": {
-    "dev": "npm --prefix web run dev",
-    "dev:web": "npm --prefix web run dev",
-    "start": "npm --prefix web run start"
+    "dev": "pnpm --filter nbt-web dev",
+    "dev:web": "pnpm --filter nbt-web dev",
+    "start": "pnpm --filter nbt-web start"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

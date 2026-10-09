@@ -12,7 +12,7 @@ export async function DELETE(_request: Request, { params }: { params: { accountI
     await revokePermission(actor, params.accountId, decodeURIComponent(params.permission));
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[sa1r-web] /api/admin/accounts/[accountId]/permissions/[permission] DELETE failed:", err);
+    console.error("[nbt-web] /api/admin/accounts/[accountId]/permissions/[permission] DELETE failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

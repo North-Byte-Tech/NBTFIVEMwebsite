@@ -11,6 +11,6 @@ test("legacy pending values are normalized to submitted", () => {
 test("workflow labels match the recruitment stages", () => {
   assert.equal(getApplicationStatusLabel("pending"), "Submitted");
   assert.equal(getApplicationStatusLabel("interview_scheduled"), "Interview Scheduled");
-  assert.equal(getApplicationStatusLabel("awaiting_brad_decision"), "Awaiting Brad Decision");
+  assert.equal(getApplicationStatusLabel("awaiting_final_decision"), "Awaiting Final Decision");
   assert.equal(getApplicationStatusLabel("accepted"), "Accepted");
 });

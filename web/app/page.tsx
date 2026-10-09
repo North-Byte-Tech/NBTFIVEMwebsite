@@ -19,42 +19,42 @@ const DEPARTMENT_ICONS: Record<DepartmentCode, typeof Shield> = {
 
 const COMMUNITY_PHOTOS = [
   {
-    src: "/sa1r-gallery-05.webp",
+    src: "/nbt-gallery-05.webp",
     alt: "Police and fire units coordinating at a multi-agency scene",
     caption: "A coordinated response",
   },
   {
-    src: "/sa1r-gallery-07.webp",
+    src: "/nbt-gallery-07.webp",
     alt: "Law enforcement officers standing with a police dog during a night shift",
     caption: "On patrol together",
   },
   {
-    src: "/sa1r-gallery-08.webp",
+    src: "/nbt-gallery-08.webp",
     alt: "A San Andreas Fire and Rescue vehicle at a rural response scene",
     caption: "Fire and rescue across the state",
   },
   {
-    src: "/sa1r-gallery-02.jpg",
+    src: "/nbt-gallery-02.jpg",
     alt: "A San Andreas police patrol vehicle responding on a rural highway",
     caption: "Keeping San Andreas moving",
   },
   {
-    src: "/sa1r-gallery-04.jpg",
+    src: "/nbt-gallery-04.jpg",
     alt: "Emergency services gathered at an industrial-site incident",
     caption: "Working across departments",
   },
   {
-    src: "/sa1r-gallery-01.webp",
+    src: "/nbt-gallery-01.webp",
     alt: "Fire chief and responder coordinating beside a marked response vehicle",
     caption: "Ready to respond",
   },
   {
-    src: "/sa1r-gallery-09.jpg",
+    src: "/nbt-gallery-09.jpg",
     alt: "Firefighters and law enforcement working together at an incident",
     caption: "One team, many roles",
   },
   {
-    src: "/sa1r-gallery-03.webp",
+    src: "/nbt-gallery-03.webp",
     alt: "Two residents meeting beside a vehicle in San Andreas",
     caption: "Life in San Andreas",
   },
@@ -68,7 +68,7 @@ export default async function HomePage() {
     <div className="-mt-8 space-y-20">
       <section className="hero-panel relative left-1/2 flex min-h-[560px] w-screen -translate-x-1/2 flex-col items-center justify-center gap-6 border-y border-line px-5 py-16 text-center sm:min-h-[68svh] sm:px-8">
         <Image
-          src="/sa1r-scene.webp"
+          src="/nbt-scene.webp"
           alt=""
           fill
           priority
@@ -79,12 +79,12 @@ export default async function HomePage() {
         <div className="relative z-10 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-steel">
           <span className="h-px w-8 bg-trooper-400" />
           <MapPin className="h-4 w-4 text-trooper-400" />
-          San Andreas 1st Response
+          NBT Roleplay
           <span className="h-px w-8 bg-trooper-400" />
         </div>
         <h1 className="relative z-10 max-w-5xl text-5xl font-semibold uppercase leading-[0.98] tracking-[0.06em] text-bone sm:text-7xl lg:text-8xl">
-          San Andreas
-          <span className="mt-2 block text-gradient-brand">1st Response</span>
+          NBT
+          <span className="mt-2 block text-gradient-brand">Roleplay</span>
         </h1>
         <p className="relative z-10 max-w-xl text-lg text-steel-300 sm:text-xl">
           All-hazards roleplay. Covering San Andreas.
@@ -122,13 +122,13 @@ export default async function HomePage() {
       <section className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
         <div className="space-y-5">
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">About SA1R</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">About NBT</p>
             <h2 className="max-w-2xl text-3xl text-bone sm:text-4xl">
               An all-hazards community covering San Andreas.
             </h2>
           </div>
           <p className="max-w-2xl leading-7 text-muted">
-            San Andreas 1st Response is a FiveM roleplay community built around law enforcement, fire and rescue,
+            NBT is a FiveM roleplay community built around law enforcement, fire and rescue,
             EMS, dispatch, and civilian life. Join a team, take part in shared scenes, and help shape the stories
             happening across the state.
           </p>
@@ -141,7 +141,7 @@ export default async function HomePage() {
         </div>
         <div className="relative isolate aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface shadow-card">
           <Image
-            src="/sa1r-gallery-04.jpg"
+            src="/nbt-gallery-04.jpg"
             alt="Law enforcement and fire crews gathered at a multi-agency response scene"
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
@@ -152,7 +152,7 @@ export default async function HomePage() {
             {[
               ["Coverage", "San Andreas"],
               ["Focus", "All-hazards"],
-              ["Community", "SA1R"],
+              ["Community", "NBT"],
               ["Platform", "FiveM RP"],
             ].map(([label, value]) => (
               <div key={label} className="border-l border-trooper-400/70 pl-3">

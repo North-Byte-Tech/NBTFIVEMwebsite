@@ -53,7 +53,7 @@ export default function GuidePage() {
   return (
     <div className="space-y-8">
       <PageHeader title="Community Guide">
-        A straightforward starting point for exploring SA1R, reviewing the rules, and applying to a department.
+        A straightforward starting point for exploring NBT, reviewing the rules, and applying to a department.
       </PageHeader>
 
       <ol className="grid gap-4 sm:grid-cols-2">

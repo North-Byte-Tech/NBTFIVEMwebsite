@@ -19,7 +19,7 @@ export async function PATCH(request: Request, { params }: { params: { accountId:
     await updateStaff(actor, params.accountId, { title, notes });
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[sa1r-web] /api/admin/staff/[accountId] PATCH failed:", err);
+    console.error("[nbt-web] /api/admin/staff/[accountId] PATCH failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }
@@ -34,7 +34,7 @@ export async function DELETE(_request: Request, { params }: { params: { accountI
     await removeStaff(actor, params.accountId);
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[sa1r-web] /api/admin/staff/[accountId] DELETE failed:", err);
+    console.error("[nbt-web] /api/admin/staff/[accountId] DELETE failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

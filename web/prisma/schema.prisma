@@ -8,7 +8,7 @@
 //
 // Account/Session/VerificationToken below are the exact shape
 // @next-auth/prisma-adapter requires (https://authjs.dev/reference/adapter/prisma).
-// User is that same contract plus SA1R-specific columns.
+// User is that same contract plus NBT-specific columns.
 
 generator client {
   provider = "prisma-client-js"
@@ -87,7 +87,7 @@ enum ApplicationStatus {
   pending
   interview_scheduled
   interview_completed
-  awaiting_brad_decision
+  awaiting_final_decision
   accepted
   rejected
 }

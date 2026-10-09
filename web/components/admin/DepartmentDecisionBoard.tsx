@@ -28,7 +28,7 @@ export function DepartmentDecisionBoard({
     );
     setTypes(next);
     saveStoredApplicationTypes(next);
-    window.dispatchEvent(new Event("sa1r-form-builder-updated"));
+    window.dispatchEvent(new Event("nbt-form-builder-updated"));
   }
 
   const pendingByDepartment = pendingApplications.reduce<Record<string, number>>((acc, app) => {

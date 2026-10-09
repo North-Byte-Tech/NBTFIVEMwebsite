@@ -12,7 +12,7 @@ export async function GET(request: Request) {
   try {
     return NextResponse.json(await searchAccounts(query));
   } catch (err) {
-    console.error("[sa1r-web] /api/admin/accounts/search failed:", err);
+    console.error("[nbt-web] /api/admin/accounts/search failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

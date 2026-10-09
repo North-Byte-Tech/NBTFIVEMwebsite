@@ -12,8 +12,8 @@ const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const display = Oswald({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-display" });
 
 export const metadata: Metadata = {
-  title: "San Andreas 1st Response RP",
-  description: "San Andreas 1st Response RP - community, recruitment, and department information.",
+  title: "NBT Roleplay",
+  description: "NBT Roleplay - community, recruitment, and department information.",
 };
 
 const NAV_LINKS = [
@@ -31,7 +31,7 @@ const FOOTER_SECTIONS = [
       { href: "/guide", label: "Guide" },
       { href: "/join", label: "How to Join" },
       { href: "/departments", label: "Departments" },
-      { href: "https://fire.sa1r.com", label: "SAFD Fire & Rescue" },
+      { href: "https://fire.nbt.gg", label: "SAFD Fire & Rescue" },
     ],
   },
   {
@@ -53,12 +53,12 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         )}
         <header className="sticky top-0 z-20 border-b border-line/80 bg-ink/95 backdrop-blur-md">
           <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-x-3 gap-y-2 px-4 py-2.5 sm:px-6 lg:flex-nowrap lg:gap-x-6 lg:px-8">
-            <Link href="/" className="flex items-center gap-3" aria-label="San Andreas 1st Response home">
+            <Link href="/" className="flex items-center gap-3" aria-label="NBT Roleplay home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logo.png" alt="" className="h-10 w-auto drop-shadow-[0_0_12px_rgba(59,110,165,0.25)]" />
               <span className="hidden border-l border-line pl-3 text-[10px] font-semibold uppercase leading-tight tracking-[0.2em] text-bone sm:block">
-                San Andreas
-                <span className="block text-trooper-300">1st Response RP</span>
+                NBT
+                <span className="block text-trooper-300">Roleplay</span>
               </span>
             </Link>
             <nav aria-label="Main navigation" className="site-nav-scroll order-3 -mx-4 flex w-[calc(100%+2rem)] flex-nowrap items-center justify-start gap-x-0 overflow-x-auto overscroll-x-contain border-t border-line px-2 pt-1 text-[11px] sm:mx-0 sm:w-full sm:gap-x-1 sm:px-0 sm:text-xs lg:order-none lg:w-auto lg:flex-1 lg:justify-center lg:overflow-visible lg:border-0 lg:pt-0">
@@ -72,7 +72,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                 </Link>
               ))}
               <a
-                href="https://fire.sa1r.com"
+                href="https://fire.nbt.gg"
                 target="_blank"
                 rel="noreferrer"
                 className="nav-link relative shrink-0 whitespace-nowrap px-1.5 py-2 font-semibold uppercase tracking-wider text-muted transition-colors hover:text-bone sm:px-3"
@@ -100,7 +100,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
             <div className="space-y-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt="San Andreas 1st Response RP" className="h-14 w-auto" />
+              <img src="/logo.png" alt="NBT Roleplay" className="h-14 w-auto" />
               <p className="max-w-xs text-sm text-muted">
                 An immersive FiveM roleplay community focused on law enforcement and emergency response across the
                 State of San Andreas.
@@ -141,9 +141,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                 </a>
                 . All rights reserved.
               </p>
-              <p>Images and logo © 2026 San Andreas 1st Response RP (SA1RP).</p>
+              <p>Images and logo © 2026 NBT Roleplay (NBTRP).</p>
               <p>
-                San Andreas 1st Response RP is not affiliated with, endorsed by, or sponsored by Rockstar Games or
+                NBT Roleplay is not affiliated with, endorsed by, or sponsored by Rockstar Games or
                 Take-Two Interactive.
               </p>
             </div>

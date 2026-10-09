@@ -1,4 +1,4 @@
-# sa1r-discord-bot
+# nbt-discord-bot
 
 Standalone Node.js process (not a FiveM resource). Ported from the main SFOS
 repo (`SFRP_Core`)'s `services/discord-bot` into this website workspace, with
@@ -53,12 +53,13 @@ disable them. `DISCORD_LOG_CHANNEL_ID` only controls game audit embeds.
    changes, and Discord server departures.
 5. Populate `discord_role_mappings` (see the main SFOS repo's
    `database/migrations/0002_permissions.sql`) with your Discord role IDs
-   mapped to `sa1r.role.*` permissions.
-6. Install the FiveM resource and create its `discord_whitelist` table by
-   following [`fivem/sa1r_whitelist/README.md`](../fivem/sa1r_whitelist/README.md).
-7. `pnpm install` (from repo root), then `pnpm --filter sa1r-discord-bot dev`
-   for local iteration, or `pnpm --filter sa1r-discord-bot build && pnpm
-   --filter sa1r-discord-bot start` to run compiled.
+   mapped to `nbt.role.*` permissions.
+6. Create the `discord_whitelist` table in the shared game database and
+   install the FiveM whitelist resource that checks it on `playerConnecting`
+   (not part of this repo).
+7. `pnpm install` (from repo root), then `pnpm --filter nbt-discord-bot dev`
+   for local iteration, or `pnpm --filter nbt-discord-bot build && pnpm
+   --filter nbt-discord-bot start` to run compiled.
 
 Slash commands are registered automatically (guild-scoped) on every start.
 

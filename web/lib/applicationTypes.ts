@@ -194,7 +194,7 @@ export const DEFAULT_APPLICATION_FIELDS: Record<DepartmentCode, FormFieldDefinit
   ],
 };
 
-export const APPLICATION_TYPES_STORAGE_KEY = "sa1r-admin-form-builder";
+export const APPLICATION_TYPES_STORAGE_KEY = "nbt-admin-form-builder";
 
 export const DEFAULT_APPLICATION_TYPES: ApplicationTypeDefinition[] = [
   {

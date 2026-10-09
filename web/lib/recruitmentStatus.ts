@@ -2,7 +2,7 @@ export const APPLICATION_STATUS_FLOW = [
   "pending",
   "interview_scheduled",
   "interview_completed",
-  "awaiting_brad_decision",
+  "awaiting_final_decision",
   "accepted",
   "rejected",
 ] as const;
@@ -29,8 +29,8 @@ export function getApplicationStatusLabel(status?: string | null): string {
       return "Interview Scheduled";
     case "interview_completed":
       return "Interview Completed";
-    case "awaiting_brad_decision":
-      return "Awaiting Brad Decision";
+    case "awaiting_final_decision":
+      return "Awaiting Final Decision";
     case "accepted":
       return "Accepted";
     case "rejected":
@@ -48,7 +48,7 @@ export function getApplicationStatusTone(status?: string | null): "neutral" | "w
       return "neutral";
     case "interview_completed":
       return "neutral";
-    case "awaiting_brad_decision":
+    case "awaiting_final_decision":
       return "warning";
     case "accepted":
       return "success";

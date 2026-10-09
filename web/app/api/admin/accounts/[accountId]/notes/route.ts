@@ -11,7 +11,7 @@ export async function GET(_request: Request, { params }: { params: { accountId: 
   try {
     return NextResponse.json(await listPlayerNotes(params.accountId));
   } catch (err) {
-    console.error("[sa1r-web] /api/admin/accounts/[accountId]/notes GET failed:", err);
+    console.error("[nbt-web] /api/admin/accounts/[accountId]/notes GET failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }
@@ -32,7 +32,7 @@ export async function POST(request: Request, { params }: { params: { accountId: 
     await addPlayerNote(actor, params.accountId, note);
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[sa1r-web] /api/admin/accounts/[accountId]/notes POST failed:", err);
+    console.error("[nbt-web] /api/admin/accounts/[accountId]/notes POST failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

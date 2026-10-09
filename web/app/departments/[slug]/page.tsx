@@ -39,7 +39,7 @@ export default function DepartmentPage({ params }: { params: { slug: string } })
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/10" />
           <div className="relative z-10 space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">San Andreas 1st Response / Departments</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">NBT Roleplay / Departments</p>
             <div className={`flex h-14 w-14 items-center justify-center rounded-xl text-bone shadow-glow-sm ${accent.iconBg}`}>
               <Icon className="h-7 w-7" />
             </div>

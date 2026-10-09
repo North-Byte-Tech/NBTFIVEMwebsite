@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0b0c09">
-    <meta name="description" content="San Andreas 1st Response RP is preparing for launch of new website. Join our Discord for updates.">
-    <title>Coming Soon | San Andreas 1st Response RP</title>
+    <meta name="description" content="NBT Roleplay is preparing for launch of new website. Join our Discord for updates.">
+    <title>Coming Soon | NBT Roleplay</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
@@ -106,7 +106,25 @@
       }
 
       .brand { display: inline-flex; align-items: center; }
-      .brand img { display: block; width: auto; height: 48px; }
+
+      .brand-mark {
+        display: inline-flex;
+        flex-direction: column;
+        line-height: 1.15;
+        font-family: "Oswald", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--bone);
+      }
+
+      .brand-mark span {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        color: var(--blue);
+      }
 
       .header-note {
         color: var(--muted);
@@ -210,7 +228,8 @@
       @media (max-width: 520px) {
         .frame { width: min(100% - 32px, 1080px); }
         header { min-height: 68px; }
-        .brand img { height: 40px; }
+        .brand-mark { font-size: 17px; }
+        .brand-mark span { font-size: 10px; }
         .header-note { max-width: 130px; font-size: 9px; line-height: 1.5; }
         main { padding-block: 58px; }
         .intro { font-size: 14px; }
@@ -241,8 +260,8 @@
 
     <header>
       <div class="frame">
-        <a class="brand" href="https://discord.gg/DPYATmwcqV" aria-label="San Andreas 1st Response RP Discord">
-          <img src="../web/public/logo.png" alt="San Andreas 1st Response RP">
+        <a class="brand" href="https://discord.gg/DPYATmwcqV" aria-label="NBT Roleplay Discord">
+          <span class="brand-mark">NBT<span>Roleplay</span></span>
         </a>
         <div class="header-note">Community active<br>Website coming soon</div>
       </div>
@@ -250,10 +269,10 @@
 
     <main class="frame">
       <section class="content" aria-labelledby="page-title">
-        <div class="eyebrow">San Andreas 1st Response RP</div>
+        <div class="eyebrow">NBT Roleplay</div>
         <h1 id="page-title">Our website<span>is coming soon.</span></h1>
         <p class="intro">
-          Our FiveM roleplay community is already active, bringing immersive emergency services roleplay to the State of San Andreas.
+          Our FiveM roleplay community is already active, bringing immersive law enforcement and emergency response roleplay to the State of San Andreas.
           Join us on Discord to connect with the community and follow website updates.
         </p>
         <a class="discord-link" href="https://discord.gg/DPYATmwcqV" target="_blank" rel="noopener noreferrer">
@@ -265,10 +284,10 @@
     </main>
 
     <footer>
-      <div>San Andreas 1st Response RP · Website coming soon</div>
+      <div>NBT Roleplay · Website coming soon</div>
       <p class="credit-detail">Website design and development © 2026 <a href="https://northbytetech.com" target="_blank" rel="noopener noreferrer">NorthByteTech</a>. All rights reserved.</p>
-      <p class="credit-detail">Images and logo © 2026 San Andreas 1st Response RP (SA1RP).</p>
-      <p class="credit-detail">San Andreas 1st Response RP is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive.</p>
+      <p class="credit-detail">Images and logo © 2026 NBT Roleplay (NBTRP).</p>
+      <p class="credit-detail">NBT Roleplay is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive.</p>
     </footer>
   </body>
 </html>

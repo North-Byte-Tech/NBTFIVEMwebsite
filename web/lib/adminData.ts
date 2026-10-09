@@ -223,11 +223,11 @@ export async function removeStaff(actor: AdminActor, accountId: string): Promise
   await prisma.staffMember.delete({ where: { userId: accountId } }).catch(() => undefined);
 
   const user = await prisma.user.findUnique({ where: { id: accountId }, select: { permissions: true } });
-  const revoked = user?.permissions.filter((p) => p.startsWith("sa1r.staff.")) ?? [];
+  const revoked = user?.permissions.filter((p) => p.startsWith("nbt.staff.")) ?? [];
   if (user) {
     await prisma.user.update({
       where: { id: accountId },
-      data: { isStaff: false, permissions: user.permissions.filter((p) => !p.startsWith("sa1r.staff.")) },
+      data: { isStaff: false, permissions: user.permissions.filter((p) => !p.startsWith("nbt.staff.")) },
     });
   }
   await logAction(
@@ -295,7 +295,7 @@ export async function listApplications(status?: ApplicationStatus): Promise<Appl
 export async function updateApplicationStatus(
   actor: AdminActor,
   id: string,
-  status: "pending" | "interview_scheduled" | "interview_completed" | "awaiting_brad_decision" | "accepted" | "rejected",
+  status: "pending" | "interview_scheduled" | "interview_completed" | "awaiting_final_decision" | "accepted" | "rejected",
   details?: { interviewDate?: string | null; notes?: string | null },
 ): Promise<void> {
   const application = await prisma.application.findUnique({ where: { id } });
@@ -315,8 +315,8 @@ export async function updateApplicationStatus(
   if (status === "interview_completed") {
     nextAnswers.interviewCompletedAt = new Date().toISOString();
   }
-  if (status === "awaiting_brad_decision") {
-    nextAnswers.awaitingBradDecisionAt = new Date().toISOString();
+  if (status === "awaiting_final_decision") {
+    nextAnswers.awaitingFinalDecisionAt = new Date().toISOString();
   }
   if (status === "accepted" || status === "rejected") {
     nextAnswers.finalDecision = status;
@@ -339,8 +339,8 @@ export async function updateApplicationStatus(
       ? "application_interview_scheduled"
       : status === "interview_completed"
         ? "application_interview_completed"
-        : status === "awaiting_brad_decision"
-          ? "application_awaiting_brad_decision"
+        : status === "awaiting_final_decision"
+          ? "application_awaiting_final_decision"
           : status === "accepted"
             ? "application_accepted"
             : status === "rejected"
@@ -354,8 +354,8 @@ export async function updateApplicationStatus(
         ? "interview_scheduled"
         : status === "interview_completed"
           ? "interview_completed"
-          : status === "awaiting_brad_decision"
-            ? "awaiting_brad_decision"
+          : status === "awaiting_final_decision"
+            ? "awaiting_final_decision"
             : status === "accepted"
               ? "application_accepted"
               : status === "rejected"

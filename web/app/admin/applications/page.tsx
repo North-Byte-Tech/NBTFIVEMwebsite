@@ -9,7 +9,7 @@ const TABS: { status: ApplicationStatus; label: string }[] = [
   { status: "pending", label: "Submitted" },
   { status: "interview_scheduled", label: "Interview Scheduled" },
   { status: "interview_completed", label: "Interview Completed" },
-  { status: "awaiting_brad_decision", label: "Awaiting Brad" },
+  { status: "awaiting_final_decision", label: "Awaiting Final Decision" },
   { status: "accepted", label: "Accepted" },
   { status: "rejected", label: "Rejected" },
 ];
@@ -37,7 +37,7 @@ export default async function AdminApplicationsPage({ searchParams }: { searchPa
           </Link>
         ))}
       </div>
-      <ApplicationsQueue applications={applications} showActions={["pending", "interview_scheduled", "interview_completed", "awaiting_brad_decision"].includes(status)} />
+      <ApplicationsQueue applications={applications} showActions={["pending", "interview_scheduled", "interview_completed", "awaiting_final_decision"].includes(status)} />
     </div>
   );
 }

@@ -14,7 +14,7 @@ interface DiscordProfile {
 }
 
 // One-time bootstrap for the very first site admin: any Discord id listed
-// here gets sa1r.staff.admin (+ isStaff) granted on sign-in if it doesn't
+// here gets nbt.staff.admin (+ isStaff) granted on sign-in if it doesn't
 // already have it. This only ever adds that one permission - it never
 // removes permissions granted (or later revoked) through the admin UI, and
 // it's safe to leave several trusted ids in here permanently, since it's

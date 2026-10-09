@@ -2,7 +2,7 @@ export type RecruitmentDiscordEvent =
   | "application_submitted"
   | "interview_scheduled"
   | "interview_completed"
-  | "awaiting_brad_decision"
+  | "awaiting_final_decision"
   | "application_accepted"
   | "application_rejected";
 
@@ -27,9 +27,9 @@ export async function emitRecruitmentBotEvent(
       body: JSON.stringify(payload),
     });
     if (!response.ok) {
-      console.warn(`[sa1r-web] Discord bot rejected ${event} notification: HTTP ${response.status}`);
+      console.warn(`[nbt-web] Discord bot rejected ${event} notification: HTTP ${response.status}`);
     }
   } catch (err) {
-    console.warn(`[sa1r-web] failed to notify Discord bot for ${event}:`, err);
+    console.warn(`[nbt-web] failed to notify Discord bot for ${event}:`, err);
   }
 }

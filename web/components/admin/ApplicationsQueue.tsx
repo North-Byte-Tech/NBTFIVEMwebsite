@@ -17,7 +17,7 @@ export function ApplicationsQueue({
   const router = useRouter();
   const [pending, setPending] = useState<string | null>(null);
 
-  async function handleReview(id: string, status: "pending" | "interview_scheduled" | "interview_completed" | "awaiting_brad_decision" | "accepted" | "rejected", interviewDate?: string) {
+  async function handleReview(id: string, status: "pending" | "interview_scheduled" | "interview_completed" | "awaiting_final_decision" | "accepted" | "rejected", interviewDate?: string) {
     setPending(id);
     try {
       await fetch(`/api/admin/applications/${id}`, {
@@ -94,15 +94,15 @@ export function ApplicationsQueue({
 
                 {application.status === "interview_completed" && (
                   <button
-                    onClick={() => handleReview(application.id, "awaiting_brad_decision")}
+                    onClick={() => handleReview(application.id, "awaiting_final_decision")}
                     disabled={pending === application.id}
                     className={buttonClasses("primary")}
                   >
-                    Send to Brad
+                    Send for Final Decision
                   </button>
                 )}
 
-                {application.status === "awaiting_brad_decision" && (
+                {application.status === "awaiting_final_decision" && (
                   <>
                     <button
                       onClick={() => handleReview(application.id, "accepted")}

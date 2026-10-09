@@ -11,7 +11,7 @@ export async function GET() {
   try {
     return NextResponse.json(await listStaff());
   } catch (err) {
-    console.error("[sa1r-web] /api/admin/staff GET failed:", err);
+    console.error("[nbt-web] /api/admin/staff GET failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     await appointStaff(actor, { accountId, title, notes });
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[sa1r-web] /api/admin/staff POST failed:", err);
+    console.error("[nbt-web] /api/admin/staff POST failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

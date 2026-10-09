@@ -18,7 +18,6 @@ export function startLogHttpServer(client: Client): void {
     const payload = req.body as Record<string, unknown>;
 
     try {
-      await postDepartmentRecruitmentEvent(event, payload);
       await handleRecruitmentEvent(client, event, payload);
       res.json({ ok: true });
     } catch (err) {
@@ -28,55 +27,8 @@ export function startLogHttpServer(client: Client): void {
   });
 
   app.listen(config.bot.httpPort, () => {
-    console.log(`[sa1r-discord-bot] recruitment HTTP server listening on port ${config.bot.httpPort}`);
+    console.log(`[nbt-discord-bot] recruitment HTTP server listening on port ${config.bot.httpPort}`);
   });
-}
-
-async function postDepartmentRecruitmentEvent(event: string, payload: Record<string, unknown>): Promise<void> {
-  const department = typeof payload.department === "string" ? payload.department.trim().toUpperCase() : "";
-  const webhookUrls = config.recruitment.webhookUrls;
-  const webhookUrl = Object.hasOwn(webhookUrls, department)
-    ? webhookUrls[department as keyof typeof webhookUrls]
-    : "";
-  if (!webhookUrl) return;
-
-  const eventTitles: Record<string, string> = {
-    application_submitted: "Application Submitted",
-    interview_scheduled: "Interview Scheduled",
-    interview_completed: "Interview Completed",
-    awaiting_brad_decision: "Awaiting Final Decision",
-    application_accepted: "Application Accepted",
-    application_rejected: "Application Rejected",
-  };
-  const username = typeof payload.discordUsername === "string" ? payload.discordUsername : "Unknown applicant";
-  const discordId = typeof payload.discordId === "string" ? payload.discordId : "Not provided";
-  const fields = [
-    { name: "Applicant", value: username, inline: true },
-    { name: "Discord ID", value: discordId, inline: true },
-  ];
-  if (typeof payload.interviewDate === "string" && payload.interviewDate) {
-    fields.push({ name: "Interview", value: payload.interviewDate, inline: false });
-  }
-
-  try {
-    const response = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        embeds: [{
-          title: eventTitles[event] ?? "Application Update",
-          description: `Department: ${department}`,
-          fields,
-          timestamp: new Date().toISOString(),
-        }],
-      }),
-    });
-    if (!response.ok) {
-      console.error(`[httpServer] department webhook rejected ${event} for ${department}: HTTP ${response.status}`);
-    }
-  } catch (err) {
-    console.error(`[httpServer] department webhook failed for ${department}:`, err);
-  }
 }
 
 async function handleRecruitmentEvent(client: Client, event: string, payload: Record<string, unknown>): Promise<void> {
@@ -103,10 +55,10 @@ async function handleRecruitmentEvent(client: Client, event: string, payload: Re
       await user.send(`Your interview for ${department || "the department"} has been scheduled for ${interviewDate ?? "your selected time"}. Please keep an eye on Discord for updates.`);
       break;
     case "interview_completed":
-      await user.send("Your interview has been completed. The department is reviewing your application and Brad will make the final decision.");
+      await user.send("Your interview has been completed. The department is reviewing your application and leadership will make the final decision.");
       break;
-    case "awaiting_brad_decision":
-      await user.send("Your application has moved to Brad for the final decision. We will let you know the outcome as soon as it is approved or rejected.");
+    case "awaiting_final_decision":
+      await user.send("Your application has moved to leadership for the final decision. We will let you know the outcome as soon as it is approved or rejected.");
       break;
     case "application_accepted": {
       const departmentKey = department.trim().toUpperCase();

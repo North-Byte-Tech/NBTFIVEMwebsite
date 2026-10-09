@@ -1,4 +1,4 @@
-# sa1r-web
+# nbt-web
 
 Next.js (App Router, TypeScript) community website — landing/rules,
 department information and recruitment, and an admin dashboard, all as one
@@ -15,11 +15,11 @@ status, permissions, bans, notes, and application history all live here.
 
 ### Bootstrapping the first admin
 
-`/admin` is gated on `sa1r.staff.admin`, managed entirely through the
+`/admin` is gated on `nbt.staff.admin`, managed entirely through the
 `/admin` UI once at least one admin exists. To get the very first admin,
 set `ADMIN_BOOTSTRAP_DISCORD_IDS` (see `.env.example`) to your Discord user
 id before signing in - `lib/auth.ts`'s `events.signIn` grants
-`sa1r.staff.admin` to any listed id automatically and idempotently. It's
+`nbt.staff.admin` to any listed id automatically and idempotently. It's
 safe to leave set permanently for whoever should always have admin;
 everyone else's access should be granted through the admin UI instead.
 
@@ -27,7 +27,7 @@ everyone else's access should be granted through the admin UI instead.
 department overview/detail), a recruitment application form per department
 (`/departments/[slug]/apply`, posting to `/api/applications`, which
 requires only a signed-in session). The SAFD site is linked at
-`https://fire.sa1r.com`; other department sites can be added when their URLs
+`https://fire.nbt.gg`; other department sites can be added when their URLs
 are ready. Live game-server status reporting is not included yet and can be
 added later. Department pages only link to `/apply` when that
 department's application type is active (`lib/applicationTypes.ts`) -
@@ -40,7 +40,7 @@ applications review queue, and a staff-action audit log - see
 ## Local setup
 
 1. Get a local Postgres running (e.g. `postgres.app`, Docker, or your
-   package manager) and create a database for this app, e.g. `sa1r_web`.
+   package manager) and create a database for this app, e.g. `nbt_web`.
 2. Create a Discord application at
    https://discord.com/developers/applications, OAuth2 tab: add redirect
    URI `http://localhost:3000/api/auth/callback/discord`, copy the Client
@@ -51,8 +51,8 @@ applications review queue, and a staff-action audit log - see
    admin on first sign-in.
 4. `pnpm install` (from repo root) — this also runs `prisma generate`.
    Then create the database tables:
-   `pnpm --filter sa1r-web exec prisma migrate deploy`.
-5. `pnpm --filter sa1r-web dev` and open http://localhost:3000.
+   `pnpm --filter nbt-web exec prisma migrate deploy`.
+5. `pnpm --filter nbt-web dev` and open http://localhost:3000.
 
 For quick UI iteration without any of the above, set `DEV_BYPASS_AUTH`
 (unset/anything but `"false"` in non-production) - every page renders as a

@@ -11,7 +11,7 @@ export async function GET() {
   try {
     return NextResponse.json(await listBans());
   } catch (err) {
-    console.error("[sa1r-web] /api/admin/bans GET failed:", err);
+    console.error("[nbt-web] /api/admin/bans GET failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     await banAccount(actor, { accountId: body.accountId, reason: body.reason, expiresAt: body.expiresAt ?? null });
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[sa1r-web] /api/admin/bans POST failed:", err);
+    console.error("[nbt-web] /api/admin/bans POST failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }
