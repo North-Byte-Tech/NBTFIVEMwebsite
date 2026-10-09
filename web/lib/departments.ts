@@ -8,13 +8,13 @@ export interface DepartmentImage {
 }
 
 const LAW_ENFORCEMENT_IMAGE: DepartmentImage = {
-  src: "/nbt-gallery-02.jpg",
-  alt: "A San Andreas police patrol vehicle responding on a rural highway",
+  src: "/fmrp-gallery-02.jpg",
+  alt: "A Metro-area police patrol vehicle responding on a rural highway",
 };
 
 const EMERGENCY_RESPONSE_IMAGE: DepartmentImage = {
-  src: "/nbt-gallery-08.webp",
-  alt: "A San Andreas Fire and Rescue vehicle at a rural response scene",
+  src: "/fmrp-gallery-08.webp",
+  alt: "A Metro Fire & Rescue vehicle at a rural response scene",
 };
 
 export function getDepartmentImage(code: DepartmentCode): DepartmentImage {
@@ -23,18 +23,18 @@ export function getDepartmentImage(code: DepartmentCode): DepartmentImage {
       return LAW_ENFORCEMENT_IMAGE;
     case "DISPATCH":
       return {
-        src: "/nbt-gallery-05.webp",
+        src: "/fmrp-gallery-05.webp",
         alt: "Police and fire units coordinating at a multi-agency scene",
       };
     case "SAEMS":
       return {
-        src: "/nbt-gallery-01.webp",
+        src: "/fmrp-gallery-01.webp",
         alt: "Fire chief and responder coordinating beside a marked response vehicle",
       };
     case "CIV":
       return {
-        src: "/nbt-gallery-03.webp",
-        alt: "Two residents meeting beside a vehicle in San Andreas",
+        src: "/fmrp-gallery-03.webp",
+        alt: "Two residents meeting beside a vehicle in Metro",
       };
     case "SAFD":
       return EMERGENCY_RESPONSE_IMAGE;
@@ -64,7 +64,7 @@ export const DEFAULT_DEPARTMENTS: DepartmentInfo[] = [
     code: "LEO",
     slug: "leo",
     name: "Law Enforcement (LEO)",
-    summary: "One recruitment page covering all of San Andreas' law enforcement agencies - patrol, investigations, and tactical response.",
+    summary: "One recruitment page covering every Metro-area and Florida state law enforcement agency - patrol, investigations, and tactical response.",
     features: ["Multiple LEO agencies, one application", "Patrol & investigations", "Structured rank progression"],
     accent: "blue",
     ranks: [],
@@ -73,32 +73,29 @@ export const DEFAULT_DEPARTMENTS: DepartmentInfo[] = [
       {
         heading: "State Agencies",
         agencies: [
-          "San Andreas District Court",
-          "SA Attorney General's Office",
-          "SA Dept of Law Enforcement (SADLE)",
-          "SADLE Criminal Investigation Division",
-          "SADLE State Trooper",
-          "SADLE State Emergency Response Team",
-          "SADLE Dept of Coroner",
-          "San Andreas Department of Public Safety (SADPS)",
-          "SADPS Dept of Revenue",
-          "SADPS State Trooper Division",
-          "San Andreas Department of Transportation",
-          "San Andreas State Prison Authority",
-          "State Constable Division",
-          "State Game Warden Division",
-          "State Ranger Division",
+          "Florida District Court",
+          "Florida Attorney General's Office",
+          "Florida Department of Law Enforcement (FDLE)",
+          "FDLE Criminal Investigation Division",
+          "Florida Highway Patrol (FHP)",
+          "FHP Special Response Team",
+          "Florida Medical Examiner's Office",
+          "Florida Department of Corrections",
+          "Florida Department of Transportation",
+          "Florida Department of Highway Safety & Motor Vehicles",
+          "Florida Fish & Wildlife Conservation Commission (FWC)",
+          "Florida State Park Rangers",
         ],
       },
       {
         heading: "Local Agencies",
         agencies: [
-          "Blaine County Sheriff's Office",
-          "Senora Valley Police Department",
-          "Paleto Bay Police Department",
-          "Grapeseed Township Police Department",
-          "Los Santos Sheriff's Department",
-          "Los Santos Police Department",
+          "Metro County Sheriff's Office",
+          "Metro Police Department",
+          "Metro Beach Police Department",
+          "Port Marina Police Department",
+          "Palm Grove Police Department",
+          "Everglade Township Police Department",
         ],
       },
     ],
@@ -106,18 +103,18 @@ export const DEFAULT_DEPARTMENTS: DepartmentInfo[] = [
   {
     code: "SAFD",
     slug: "safd",
-    name: "San Andreas Fire & Rescue Services (SAFD)",
+    name: "Metro Fire & Rescue (SAFD)",
     summary: "Fire, EMS, and dispatch operations covering emergency response, medical support, and coordinated incident command.",
     features: ["Fire & rescue response", "EMS support operations", "Dispatch & incident coordination"],
     accent: "red",
-    externalSiteUrl: "https://fire.nbt.gg",
+    externalSiteUrl: "https://fire.fmrp.gg",
     ranks: [],
     requirements: [],
   },
   {
     code: "DISPATCH",
     slug: "dispatch",
-    name: "San Andreas Dispatch",
+    name: "Metro Dispatch",
     summary: "Regional communications, radio operations, and dispatch coordination for emergency services.",
     features: ["Regional emergency dispatch", "Radio & call handling", "Multi-agency coordination"],
     accent: "blue",
@@ -127,7 +124,7 @@ export const DEFAULT_DEPARTMENTS: DepartmentInfo[] = [
   {
     code: "CIV",
     slug: "civ",
-    name: "San Andreas Civilian Community",
+    name: "Metro Civilian Community",
     summary: "Civilian life, community support, and non-emergency public engagement across the state.",
     features: ["Civilian roleplay", "Community engagement", "Non-emergency support"],
     accent: "amber",
@@ -136,7 +133,7 @@ export const DEFAULT_DEPARTMENTS: DepartmentInfo[] = [
   },
 ];
 
-export const DEPARTMENTS_STORAGE_KEY = "nbt-admin-departments";
+export const DEPARTMENTS_STORAGE_KEY = "fmrp-admin-departments";
 
 export function getStoredDepartments(): DepartmentInfo[] {
   if (typeof window === "undefined") {

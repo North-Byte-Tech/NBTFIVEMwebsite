@@ -19,44 +19,44 @@ const DEPARTMENT_ICONS: Record<DepartmentCode, typeof Shield> = {
 
 const COMMUNITY_PHOTOS = [
   {
-    src: "/nbt-gallery-05.webp",
+    src: "/fmrp-gallery-05.webp",
     alt: "Police and fire units coordinating at a multi-agency scene",
     caption: "A coordinated response",
   },
   {
-    src: "/nbt-gallery-07.webp",
+    src: "/fmrp-gallery-07.webp",
     alt: "Law enforcement officers standing with a police dog during a night shift",
     caption: "On patrol together",
   },
   {
-    src: "/nbt-gallery-08.webp",
-    alt: "A San Andreas Fire and Rescue vehicle at a rural response scene",
+    src: "/fmrp-gallery-08.webp",
+    alt: "A Metro Fire & Rescue vehicle at a rural response scene",
     caption: "Fire and rescue across the state",
   },
   {
-    src: "/nbt-gallery-02.jpg",
-    alt: "A San Andreas police patrol vehicle responding on a rural highway",
-    caption: "Keeping San Andreas moving",
+    src: "/fmrp-gallery-02.jpg",
+    alt: "A Metro-area police patrol vehicle responding on a rural highway",
+    caption: "Keeping Metro moving",
   },
   {
-    src: "/nbt-gallery-04.jpg",
+    src: "/fmrp-gallery-04.jpg",
     alt: "Emergency services gathered at an industrial-site incident",
     caption: "Working across departments",
   },
   {
-    src: "/nbt-gallery-01.webp",
+    src: "/fmrp-gallery-01.webp",
     alt: "Fire chief and responder coordinating beside a marked response vehicle",
     caption: "Ready to respond",
   },
   {
-    src: "/nbt-gallery-09.jpg",
+    src: "/fmrp-gallery-09.jpg",
     alt: "Firefighters and law enforcement working together at an incident",
     caption: "One team, many roles",
   },
   {
-    src: "/nbt-gallery-03.webp",
-    alt: "Two residents meeting beside a vehicle in San Andreas",
-    caption: "Life in San Andreas",
+    src: "/fmrp-gallery-03.webp",
+    alt: "Two residents meeting beside a vehicle in Metro",
+    caption: "Life in Metro",
   },
 ] as const;
 
@@ -68,7 +68,7 @@ export default async function HomePage() {
     <div className="-mt-8 space-y-20">
       <section className="hero-panel relative left-1/2 flex min-h-[560px] w-screen -translate-x-1/2 flex-col items-center justify-center gap-6 border-y border-line px-5 py-16 text-center sm:min-h-[68svh] sm:px-8">
         <Image
-          src="/nbt-scene.webp"
+          src="/fmrp-scene.webp"
           alt=""
           fill
           priority
@@ -79,15 +79,15 @@ export default async function HomePage() {
         <div className="relative z-10 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-steel">
           <span className="h-px w-8 bg-trooper-400" />
           <MapPin className="h-4 w-4 text-trooper-400" />
-          NBT Roleplay
+          Florida Metro RP
           <span className="h-px w-8 bg-trooper-400" />
         </div>
         <h1 className="relative z-10 max-w-5xl text-5xl font-semibold uppercase leading-[0.98] tracking-[0.06em] text-bone sm:text-7xl lg:text-8xl">
-          NBT
-          <span className="mt-2 block text-gradient-brand">Roleplay</span>
+          Florida
+          <span className="mt-2 block text-gradient-brand">Metro RP</span>
         </h1>
         <p className="relative z-10 max-w-xl text-lg text-steel-300 sm:text-xl">
-          All-hazards roleplay. Covering San Andreas.
+          All-hazards roleplay. Covering Metro, Florida.
         </p>
         <div className="relative z-10 flex flex-wrap justify-center gap-3 pt-2">
           {session ? (
@@ -122,13 +122,13 @@ export default async function HomePage() {
       <section className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
         <div className="space-y-5">
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">About NBT</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">About Florida Metro RP</p>
             <h2 className="max-w-2xl text-3xl text-bone sm:text-4xl">
-              An all-hazards community covering San Andreas.
+              An all-hazards community covering Metro, Florida.
             </h2>
           </div>
           <p className="max-w-2xl leading-7 text-muted">
-            NBT is a FiveM roleplay community built around law enforcement, fire and rescue,
+            Florida Metro RP is a FiveM roleplay community built around law enforcement, fire and rescue,
             EMS, dispatch, and civilian life. Join a team, take part in shared scenes, and help shape the stories
             happening across the state.
           </p>
@@ -141,7 +141,7 @@ export default async function HomePage() {
         </div>
         <div className="relative isolate aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface shadow-card">
           <Image
-            src="/nbt-gallery-04.jpg"
+            src="/fmrp-gallery-04.jpg"
             alt="Law enforcement and fire crews gathered at a multi-agency response scene"
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
@@ -150,9 +150,9 @@ export default async function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 gap-4 p-5 sm:grid-cols-4">
             {[
-              ["Coverage", "San Andreas"],
+              ["Coverage", "Metro, FL"],
               ["Focus", "All-hazards"],
-              ["Community", "NBT"],
+              ["Community", "FMRP"],
               ["Platform", "FiveM RP"],
             ].map(([label, value]) => (
               <div key={label} className="border-l border-trooper-400/70 pl-3">
@@ -170,7 +170,7 @@ export default async function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">Find your role</p>
             <h2 className="mt-1 text-3xl text-bone">One community. Every response.</h2>
             <p className="mt-2 max-w-2xl text-sm text-muted">
-              Explore the departments and civilian roles that make San Andreas come alive.
+              Explore the departments and civilian roles that make Metro come alive.
             </p>
           </div>
           <Link href="/departments" className="text-sm font-medium text-trooper-400 hover:underline">
@@ -228,7 +228,7 @@ export default async function HomePage() {
       <section className="space-y-5">
         <div className="border-b border-line pb-3">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">From the community</p>
-          <h2 className="mt-1 text-3xl text-bone">Scenes from San Andreas</h2>
+          <h2 className="mt-1 text-3xl text-bone">Scenes from Metro</h2>
           <p className="mt-2 max-w-2xl text-sm text-muted">
             A look at the patrols, calls, and everyday moments that make up life across the state.
           </p>
@@ -263,7 +263,7 @@ export default async function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">Join the community</p>
             <h2 className="text-3xl text-bone sm:text-4xl">Ready to respond?</h2>
             <p className="text-muted">
-              Choose a department, connect with the community, and start your San Andreas roleplay story.
+              Choose a department, connect with the community, and start your Metro roleplay story.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">

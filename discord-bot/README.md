@@ -1,4 +1,4 @@
-# nbt-discord-bot
+# fmrp-discord-bot
 
 Standalone Node.js process (not a FiveM resource). Ported from the main SFOS
 repo (`SFRP_Core`)'s `services/discord-bot` into this website workspace, with
@@ -53,13 +53,13 @@ disable them. `DISCORD_LOG_CHANNEL_ID` only controls game audit embeds.
    changes, and Discord server departures.
 5. Populate `discord_role_mappings` (see the main SFOS repo's
    `database/migrations/0002_permissions.sql`) with your Discord role IDs
-   mapped to `nbt.role.*` permissions.
+   mapped to `fmrp.role.*` permissions.
 6. Create the `discord_whitelist` table in the shared game database and
    install the FiveM whitelist resource that checks it on `playerConnecting`
    (not part of this repo).
-7. `pnpm install` (from repo root), then `pnpm --filter nbt-discord-bot dev`
-   for local iteration, or `pnpm --filter nbt-discord-bot build && pnpm
-   --filter nbt-discord-bot start` to run compiled.
+7. `pnpm install` (from repo root), then `pnpm --filter fmrp-discord-bot dev`
+   for local iteration, or `pnpm --filter fmrp-discord-bot build && pnpm
+   --filter fmrp-discord-bot start` to run compiled.
 
 Slash commands are registered automatically (guild-scoped) on every start.
 

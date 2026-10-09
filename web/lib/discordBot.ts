@@ -27,9 +27,9 @@ export async function emitRecruitmentBotEvent(
       body: JSON.stringify(payload),
     });
     if (!response.ok) {
-      console.warn(`[nbt-web] Discord bot rejected ${event} notification: HTTP ${response.status}`);
+      console.warn(`[fmrp-web] Discord bot rejected ${event} notification: HTTP ${response.status}`);
     }
   } catch (err) {
-    console.warn(`[nbt-web] failed to notify Discord bot for ${event}:`, err);
+    console.warn(`[fmrp-web] failed to notify Discord bot for ${event}:`, err);
   }
 }

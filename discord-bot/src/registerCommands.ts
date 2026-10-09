@@ -9,5 +9,5 @@ export async function registerCommands(): Promise<void> {
   await rest.put(Routes.applicationGuildCommands(config.discordClientId, config.discordGuildId), {
     body: commands,
   });
-  console.log(`[nbt-discord-bot] registered ${commands.length} guild slash commands`);
+  console.log(`[fmrp-discord-bot] registered ${commands.length} guild slash commands`);
 }

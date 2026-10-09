@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-// Palette for San Andreas 1st Response RP: near-black base, steel-blue
+// Palette for Florida Metro RP: near-black base, steel-blue
 // trooper accent (patrol lightbar / uniform blue), cool steel-grey rule
 // lines, and a badge-gold accent so gradients/highlights have a second
 // stop - a highway-patrol/emergency-services mood instead of a nature one.

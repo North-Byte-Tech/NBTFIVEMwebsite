@@ -223,11 +223,11 @@ export async function removeStaff(actor: AdminActor, accountId: string): Promise
   await prisma.staffMember.delete({ where: { userId: accountId } }).catch(() => undefined);
 
   const user = await prisma.user.findUnique({ where: { id: accountId }, select: { permissions: true } });
-  const revoked = user?.permissions.filter((p) => p.startsWith("nbt.staff.")) ?? [];
+  const revoked = user?.permissions.filter((p) => p.startsWith("fmrp.staff.")) ?? [];
   if (user) {
     await prisma.user.update({
       where: { id: accountId },
-      data: { isStaff: false, permissions: user.permissions.filter((p) => !p.startsWith("nbt.staff.")) },
+      data: { isStaff: false, permissions: user.permissions.filter((p) => !p.startsWith("fmrp.staff.")) },
     });
   }
   await logAction(

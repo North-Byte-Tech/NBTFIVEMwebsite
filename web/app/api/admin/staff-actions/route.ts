@@ -11,7 +11,7 @@ export async function GET() {
   try {
     return NextResponse.json(await listStaffActions());
   } catch (err) {
-    console.error("[nbt-web] /api/admin/staff-actions failed:", err);
+    console.error("[fmrp-web] /api/admin/staff-actions failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

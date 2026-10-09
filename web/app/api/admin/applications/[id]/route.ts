@@ -30,7 +30,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
     });
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[nbt-web] /api/admin/applications/[id] failed:", err);
+    console.error("[fmrp-web] /api/admin/applications/[id] failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

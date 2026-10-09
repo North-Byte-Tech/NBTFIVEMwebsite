@@ -26,7 +26,7 @@ export function DepartmentEditor() {
 
   useEffect(() => {
     saveStoredDepartments(departments);
-    window.dispatchEvent(new Event("nbt-departments-updated"));
+    window.dispatchEvent(new Event("fmrp-departments-updated"));
   }, [departments]);
 
   const updateDepartment = (code: string, updater: (department: DepartmentInfo) => DepartmentInfo) => {

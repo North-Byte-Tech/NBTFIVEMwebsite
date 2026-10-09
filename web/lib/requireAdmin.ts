@@ -9,7 +9,7 @@ export interface AdminActor {
 }
 
 // Session-level admin gate. This is now the ONLY check - there is no
-// separate service re-deriving nbt.staff.admin from anywhere else, so
+// separate service re-deriving fmrp.staff.admin from anywhere else, so
 // whatever this session says is authoritative. Every /admin page and
 // /api/admin/* route calls this first and 403s/renders nothing if it comes
 // back null.

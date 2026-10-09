@@ -12,7 +12,7 @@ export async function GET(request: Request) {
   try {
     return NextResponse.json(await searchAccounts(query));
   } catch (err) {
-    console.error("[nbt-web] /api/admin/accounts/search failed:", err);
+    console.error("[fmrp-web] /api/admin/accounts/search failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

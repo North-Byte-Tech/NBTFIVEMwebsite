@@ -1,12 +1,12 @@
 {
-  "name": "nbt-website",
+  "name": "fmrp-website",
   "private": true,
   "version": "0.1.0",
   "packageManager": "pnpm@9.15.9",
   "scripts": {
-    "dev": "pnpm --filter nbt-web dev",
-    "dev:web": "pnpm --filter nbt-web dev",
-    "start": "pnpm --filter nbt-web start"
+    "dev": "pnpm --filter fmrp-web dev",
+    "dev:web": "pnpm --filter fmrp-web dev",
+    "start": "pnpm --filter fmrp-web start"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

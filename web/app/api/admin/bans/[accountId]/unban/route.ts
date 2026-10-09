@@ -12,7 +12,7 @@ export async function POST(_request: Request, { params }: { params: { accountId:
     await unbanAccount(actor, params.accountId);
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[nbt-web] /api/admin/bans/[accountId]/unban failed:", err);
+    console.error("[fmrp-web] /api/admin/bans/[accountId]/unban failed:", err);
     return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

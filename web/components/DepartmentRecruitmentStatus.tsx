@@ -13,11 +13,11 @@ export function DepartmentRecruitmentStatus({ departmentCode }: { departmentCode
 
     sync();
     window.addEventListener("storage", sync);
-    window.addEventListener("nbt-form-builder-updated", sync);
+    window.addEventListener("fmrp-form-builder-updated", sync);
 
     return () => {
       window.removeEventListener("storage", sync);
-      window.removeEventListener("nbt-form-builder-updated", sync);
+      window.removeEventListener("fmrp-form-builder-updated", sync);
     };
   }, [departmentCode]);
 
@@ -31,11 +31,11 @@ export function DepartmentRecruitmentPill({ departmentCode }: { departmentCode: 
     const sync = () => setOpen(getDepartmentRecruitmentOpen(departmentCode));
     sync();
     window.addEventListener("storage", sync);
-    window.addEventListener("nbt-form-builder-updated", sync);
+    window.addEventListener("fmrp-form-builder-updated", sync);
 
     return () => {
       window.removeEventListener("storage", sync);
-      window.removeEventListener("nbt-form-builder-updated", sync);
+      window.removeEventListener("fmrp-form-builder-updated", sync);
     };
   }, [departmentCode]);
 
@@ -57,11 +57,11 @@ export function DepartmentRecruitmentGate({
     const sync = () => setOpen(getDepartmentRecruitmentOpen(departmentCode));
     sync();
     window.addEventListener("storage", sync);
-    window.addEventListener("nbt-form-builder-updated", sync);
+    window.addEventListener("fmrp-form-builder-updated", sync);
 
     return () => {
       window.removeEventListener("storage", sync);
-      window.removeEventListener("nbt-form-builder-updated", sync);
+      window.removeEventListener("fmrp-form-builder-updated", sync);
     };
   }, [departmentCode]);
 

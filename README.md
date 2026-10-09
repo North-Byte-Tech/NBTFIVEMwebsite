@@ -1,6 +1,6 @@
-# NBT Website
+# Florida Metro RP Website
 
-NBT Roleplay's public website, staff admin dashboard, and
+Florida Metro RP's public website, staff admin dashboard, and
 emergency-department (LEO/SAFD/SAEMS) recruitment.
 
 A pnpm workspace with two deployable services:
@@ -33,8 +33,8 @@ See each service's README for local setup and deployment.
 
 ```bash
 pnpm install
-pnpm --filter nbt-web dev          # terminal 1
-pnpm --filter nbt-discord-bot dev  # terminal 2 (optional, needs a Discord bot + game MySQL)
+pnpm --filter fmrp-web dev          # terminal 1
+pnpm --filter fmrp-discord-bot dev  # terminal 2 (optional, needs a Discord bot + game MySQL)
 ```
 
 Each service needs its own `.env`/`.env.local` — copy `.env.example` in

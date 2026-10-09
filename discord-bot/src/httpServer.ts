@@ -27,7 +27,7 @@ export function startLogHttpServer(client: Client): void {
   });
 
   app.listen(config.bot.httpPort, () => {
-    console.log(`[nbt-discord-bot] recruitment HTTP server listening on port ${config.bot.httpPort}`);
+    console.log(`[fmrp-discord-bot] recruitment HTTP server listening on port ${config.bot.httpPort}`);
   });
 }
 
