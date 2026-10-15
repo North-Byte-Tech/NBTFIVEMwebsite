@@ -12,8 +12,8 @@ const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const display = Oswald({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-display" });
 
 export const metadata: Metadata = {
-  title: "Florida Metro RP",
-  description: "Florida Metro RP - community, recruitment, and department information.",
+  title: "San Andreas Metro RP",
+  description: "San Andreas Metro RP - community, recruitment, and department information.",
 };
 
 const NAV_LINKS = [
@@ -55,11 +55,11 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         )}
         <header className="sticky top-0 z-20 border-b border-line/80 bg-ink/95 backdrop-blur-md">
           <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-x-3 gap-y-2 px-4 py-2.5 sm:px-6 lg:flex-nowrap lg:gap-x-6 lg:px-8">
-            <Link href="/" className="flex items-center gap-3" aria-label="Florida Metro RP home">
+            <Link href="/" className="flex items-center gap-3" aria-label="San Andreas Metro RP home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logo.png" alt="" className="h-10 w-auto drop-shadow-[0_0_12px_rgba(59,110,165,0.25)]" />
               <span className="hidden border-l border-line pl-3 text-[10px] font-semibold uppercase leading-tight tracking-[0.2em] text-bone sm:block">
-                Florida
+                San Andreas
                 <span className="block text-trooper-300">Metro RP</span>
               </span>
             </Link>
@@ -104,10 +104,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
             <div className="space-y-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt="Florida Metro RP" className="h-14 w-auto" />
+              <img src="/logo.png" alt="San Andreas Metro RP" className="h-14 w-auto" />
               <p className="max-w-xs text-sm text-muted">
                 An immersive FiveM roleplay community focused on law enforcement and emergency response across the
-                State of Florida.
+                State of San Andreas.
               </p>
             </div>
             {FOOTER_SECTIONS.map((section) => (
@@ -145,9 +145,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                 </a>
                 . All rights reserved.
               </p>
-              <p>Images and logo © 2026 Florida Metro RP (FMRP).</p>
+              <p>Images and logo © 2026 San Andreas Metro RP (SAMRP).</p>
               <p>
-                Florida Metro RP is not affiliated with, endorsed by, or sponsored by Rockstar Games or
+                San Andreas Metro RP is not affiliated with, endorsed by, or sponsored by Rockstar Games or
                 Take-Two Interactive.
               </p>
             </div>

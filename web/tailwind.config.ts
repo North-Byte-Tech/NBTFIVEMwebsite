@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-// Palette for Florida Metro RP: near-black base, steel-blue
+// Palette for San Andreas Metro RP: near-black base, steel-blue
 // trooper accent (patrol lightbar / uniform blue), cool steel-grey rule
 // lines, and a badge-gold accent so gradients/highlights have a second
 // stop - a highway-patrol/emergency-services mood instead of a nature one.
