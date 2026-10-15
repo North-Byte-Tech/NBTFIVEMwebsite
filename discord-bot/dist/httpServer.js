@@ -3,6 +3,11 @@ import { config } from "./config.js";
 export function startLogHttpServer(client) {
     const app = express();
     app.use(express.json());
+    // Unauthenticated liveness probe for the website's Dev Dashboard - reports
+    // only whether the process is up and logged in to Discord.
+    app.get("/health", (_req, res) => {
+        res.json({ ok: true, discordReady: client.isReady() });
+    });
     app.post("/recruitment/:event", async (req, res) => {
         const providedSecret = req.header("x-sfos-log-secret");
         const recruitmentSecret = config.recruitment.eventSecret;

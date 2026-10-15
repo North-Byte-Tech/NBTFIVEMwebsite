@@ -1,5 +1,5 @@
-import { getSession } from "@/lib/session";
-import { STAFF_ADMIN_PERMISSION } from "@/lib/permissions";
+import { getSession, HOST_BYPASS_USER_ID } from "@/lib/session";
+import { DEVELOPER_PERMISSION, STAFF_ADMIN_PERMISSION } from "@/lib/permissions";
 
 //export { STAFF_ADMIN_PERMISSION } from "@/lib/permissions";
 
@@ -16,6 +16,19 @@ export interface AdminActor {
 export async function requireAdminActor(): Promise<AdminActor | null> {
   const session = await getSession();
   if (!session || !session.permissions.includes(STAFF_ADMIN_PERMISSION)) {
+    return null;
+  }
+  return { id: session.userId, name: session.user?.name ?? null };
+}
+
+// Gate for /admin/dev - an admin who also holds the developer permission.
+export async function requireDeveloperActor(): Promise<AdminActor | null> {
+  const session = await getSession();
+  if (
+    !session
+    || !session.permissions.includes(STAFF_ADMIN_PERMISSION)
+    || !session.permissions.includes(DEVELOPER_PERMISSION)
+  ) {
     return null;
   }
   return { id: session.userId, name: session.user?.name ?? null };
@@ -42,7 +55,10 @@ export async function requireFinalDecisionActor(): Promise<AdminActor | null> {
       sessionName.toLowerCase() === "dev user"
     );
 
-  if (!isConfiguredDecisionAccount && !isLocalDevelopmentOverride) {
+  // Guests on an AUTH_BYPASS_HOSTS domain are full admins, decisions included.
+  const isHostBypassGuest = sessionUserId === HOST_BYPASS_USER_ID;
+
+  if (!isConfiguredDecisionAccount && !isLocalDevelopmentOverride && !isHostBypassGuest) {
     return null;
   }
 

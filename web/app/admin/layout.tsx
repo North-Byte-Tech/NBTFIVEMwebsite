@@ -1,19 +1,7 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
-import { requireAdminActor } from "@/lib/requireAdmin";
+import { requireAdminActor, requireDeveloperActor, requireFinalDecisionActor } from "@/lib/requireAdmin";
 import { Card } from "@/components/ui/Card";
-
-const ADMIN_NAV = [
-  { href: "/admin", label: "Overview" },
-  { href: "/admin/accounts", label: "Accounts" },
-  { href: "/admin/staff", label: "Staff" },
-  { href: "/admin/applications", label: "Applications" },
-  { href: "/admin/departments", label: "Departments" },
-  { href: "/admin/department-decisions", label: "Department Decisions" },
-  { href: "/admin/application-types", label: "Application Types" },
-  { href: "/admin/form-builder", label: "Form Builder" },
-  { href: "/admin/audit-log", label: "Audit Log" },
-] as const;
+import { AdminNav } from "@/components/admin/AdminNav";
 
 // The one admin gate - see lib/requireAdmin.ts.
 export default async function AdminLayout({ children }: { children: ReactNode }) {
@@ -27,20 +15,18 @@ export default async function AdminLayout({ children }: { children: ReactNode })
     );
   }
 
+  const [decisionActor, developerActor] = await Promise.all([requireFinalDecisionActor(), requireDeveloperActor()]);
+
   return (
-    <div className="space-y-8">
-      <nav className="flex flex-wrap gap-1 border-b border-line pb-4 text-sm">
-        {ADMIN_NAV.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="rounded-full px-3 py-1.5 font-medium text-muted transition-colors hover:bg-surface-raised hover:text-bone"
-          >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
-      {children}
+    <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
+      <aside className="border-b border-line pb-3 lg:sticky lg:top-24 lg:w-56 lg:shrink-0 lg:self-start lg:border-b-0 lg:border-r lg:pb-0 lg:pr-6">
+        <div className="mb-4 hidden px-3 lg:block">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-trooper-300">Staff Panel</p>
+          <p className="mt-1 truncate text-sm text-bone">{actor.name ?? "Staff member"}</p>
+        </div>
+        <AdminNav canDecide={decisionActor !== null} isDeveloper={developerActor !== null} />
+      </aside>
+      <div className="min-w-0 flex-1">{children}</div>
     </div>
   );
 }

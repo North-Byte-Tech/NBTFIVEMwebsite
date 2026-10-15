@@ -176,3 +176,27 @@ model AuditLog {
 
   @@index([createdAt])
 }
+
+// A staff Doc Center article (/admin/docs), written in Markdown through the
+// admin UI. Built-in articles that ship with the code live in
+// lib/builtinDocs.ts instead and reserve their slugs - see lib/docs.ts.
+model Doc {
+  id       String  @id @default(cuid())
+  slug     String  @unique
+  title    String
+  category String
+  summary  String?
+  body     String  @db.Text
+  pinned   Boolean @default(false)
+
+  // Audit-trail strings, not foreign keys - same reasoning as Application.
+  createdById   String?
+  createdByName String?
+  updatedById   String?
+  updatedByName String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+}
