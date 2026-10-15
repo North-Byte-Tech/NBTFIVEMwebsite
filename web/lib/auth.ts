@@ -2,7 +2,7 @@ import type { NextAuthOptions } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "./prisma";
-import { STAFF_ADMIN_PERMISSION } from "./permissions";
+import { DEVELOPER_PERMISSION, STAFF_ADMIN_PERMISSION } from "./permissions";
 
 interface DiscordProfile {
   id: string;
@@ -14,13 +14,17 @@ interface DiscordProfile {
 }
 
 // One-time bootstrap for the very first site admin: any Discord id listed
-// here gets fmrp.staff.admin (+ isStaff) granted on sign-in if it doesn't
-// already have it. This only ever adds that one permission - it never
+// here gets fmrp.staff.admin + fmrp.staff.developer (+ isStaff) granted on
+// sign-in if it doesn't already have them. This only ever adds those - it never
 // removes permissions granted (or later revoked) through the admin UI, and
 // it's safe to leave several trusted ids in here permanently, since it's
 // additive and idempotent. Unlike the old portal-api-era bypass, there's no
 // external system re-checking this - the website's own Postgres row IS the
 // authority now, so keep this list to people you actually trust with admin.
+// Bootstrap ids are the site owners, so they also get the developer
+// dashboard.
+const BOOTSTRAP_PERMISSIONS = [STAFF_ADMIN_PERMISSION, DEVELOPER_PERMISSION];
+
 function loadAdminBootstrapIds(): string[] {
   const raw = process.env.ADMIN_BOOTSTRAP_DISCORD_IDS;
   if (!raw) {
@@ -94,19 +98,16 @@ export const authOptions: NextAuthOptions = {
       if (!loadAdminBootstrapIds().includes(discordId)) {
         return;
       }
-      if (user.isStaff && user.permissions?.includes(STAFF_ADMIN_PERMISSION)) {
+      const current = user.permissions ?? [];
+      const missing = BOOTSTRAP_PERMISSIONS.filter((permission) => !current.includes(permission));
+      if (user.isStaff && missing.length === 0) {
         return;
       }
 
       await prisma.user
         .update({
           where: { id: user.id },
-          data: {
-            isStaff: true,
-            permissions: user.permissions?.includes(STAFF_ADMIN_PERMISSION)
-              ? user.permissions
-              : [...(user.permissions ?? []), STAFF_ADMIN_PERMISSION],
-          },
+          data: { isStaff: true, permissions: [...current, ...missing] },
         })
         .catch((error) => {
           console.error("Failed to apply admin bootstrap on sign-in", error);

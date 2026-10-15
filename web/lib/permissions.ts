@@ -4,11 +4,18 @@
 // lib/auth.ts) and create a circular import.
 export const STAFF_ADMIN_PERMISSION = "fmrp.staff.admin";
 
+// Unlocks /admin/dev (runtime, config and database diagnostics). Only
+// meaningful alongside STAFF_ADMIN_PERMISSION, since the whole /admin
+// segment is gated on that first.
+export const DEVELOPER_PERMISSION = "fmrp.staff.developer";
+
 // The fixed set of grantable permissions shown in the admin Permissions
 // editor - mirrors discord-bot/src/commands.ts's PERMISSION_CHOICES (kept as
 // a fixed list there too, for the same reason: avoid typo'd permission
 // strings). The two lists are independent now that portal-api no longer
-// bridges them, so keep them in sync by hand if this ever changes.
+// bridges them, so keep them in sync by hand if this ever changes - except
+// DEVELOPER_PERMISSION, which is website-only and deliberately not offered
+// by the bot.
 export interface PermissionCatalogEntry {
   permission: string;
   label: string;
@@ -24,4 +31,5 @@ export const PERMISSION_CATALOG: PermissionCatalogEntry[] = [
   { permission: "fmrp.staff.vehicles", label: "Staff: Vehicles (givevehicle)" },
   { permission: "fmrp.staff.aop", label: "Staff: AOP / Priority (/aop, /priority staff actions)" },
   { permission: STAFF_ADMIN_PERMISSION, label: "Staff: Admin Menu (permissions, AOP, player actions, catalogs)" },
+  { permission: DEVELOPER_PERMISSION, label: "Staff: Developer (website dev dashboard and diagnostics)" },
 ];

@@ -249,8 +249,8 @@ export interface StaffActionRow {
   actorName: string | null;
 }
 
-export async function listStaffActions(): Promise<StaffActionRow[]> {
-  const rows = await prisma.auditLog.findMany({ orderBy: { createdAt: "desc" }, take: 100 });
+export async function listStaffActions(limit = 100): Promise<StaffActionRow[]> {
+  const rows = await prisma.auditLog.findMany({ orderBy: { createdAt: "desc" }, take: limit });
   return rows.map((row) => ({
     id: row.id,
     action: row.action,
@@ -272,6 +272,22 @@ export interface ApplicationReviewRow {
   createdAt: string;
   reviewedAt: string | null;
   reviewedByName: string | null;
+}
+
+export async function countApplicationsByStatus(): Promise<Record<ApplicationStatus, number>> {
+  const groups = await prisma.application.groupBy({ by: ["status"], _count: { _all: true } });
+  const counts: Record<ApplicationStatus, number> = {
+    pending: 0,
+    interview_scheduled: 0,
+    interview_completed: 0,
+    awaiting_final_decision: 0,
+    accepted: 0,
+    rejected: 0,
+  };
+  for (const group of groups) {
+    counts[group.status] = group._count._all;
+  }
+  return counts;
 }
 
 export async function listApplications(status?: ApplicationStatus): Promise<ApplicationReviewRow[]> {

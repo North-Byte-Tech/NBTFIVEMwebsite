@@ -37,6 +37,23 @@ Builder tools; the apply route itself works regardless, for testing. The admin d
 applications review queue, and a staff-action audit log - see
 `lib/adminData.ts` for all of it.
 
+The admin dashboard also includes:
+
+- **Doc Center** (`/admin/docs`): a staff knowledge base. Admins write
+  Markdown articles (the `Doc` table, `lib/docs.ts`) alongside read-only
+  built-in articles that ship with the code (`lib/builtinDocs.ts`).
+- **Dev Dashboard** (`/admin/dev`): runtime, configuration, database
+  (latency, row counts, applied/pending migrations) and Discord bot health.
+  It needs `fmrp.staff.developer` on top of `fmrp.staff.admin`. IDs in
+  `ADMIN_BOOTSTRAP_DISCORD_IDS` get both.
+
+### No-login host
+
+Requests whose `Host` is listed in `AUTH_BYPASS_HOSTS` (default
+`fmrp.northbytetech.com`) skip Discord sign-in entirely. Every visitor there
+is a "Guest Admin" with full admin access, but not the Dev Dashboard, and
+can't submit applications. Set `AUTH_BYPASS_HOSTS=` (empty) to turn it off.
+
 ## Local setup
 
 1. Get a local Postgres running (e.g. `postgres.app`, Docker, or your

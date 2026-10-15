@@ -6,12 +6,22 @@ export type RecruitmentDiscordEvent =
   | "application_accepted"
   | "application_rejected";
 
+// Shared with lib/devDiagnostics.ts so the Dev Dashboard probes exactly the
+// URL notifications are sent to.
+export function discordBotBaseUrl(): string {
+  return (process.env.DISCORD_BOT_WEBHOOK_URL ?? process.env.DISCORD_BOT_BASE_URL ?? "http://localhost:30121").replace(/\/$/, "");
+}
+
+export function discordBotSecret(): string {
+  return process.env.DISCORD_BOT_WEBHOOK_SECRET ?? process.env.FXSERVER_LOG_SECRET ?? "";
+}
+
 export async function emitRecruitmentBotEvent(
   event: RecruitmentDiscordEvent,
   payload: Record<string, string | number | boolean | null | undefined>,
 ): Promise<void> {
-  const baseUrl = (process.env.DISCORD_BOT_WEBHOOK_URL ?? process.env.DISCORD_BOT_BASE_URL ?? "http://localhost:30121").replace(/\/$/, "");
-  const secret = process.env.DISCORD_BOT_WEBHOOK_SECRET ?? process.env.FXSERVER_LOG_SECRET ?? "";
+  const baseUrl = discordBotBaseUrl();
+  const secret = discordBotSecret();
 
   if (!secret) {
     return;

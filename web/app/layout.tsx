@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter, Oswald } from "next/font/google";
 import Link from "next/link";
-import { getSession, DEV_AUTH_BYPASSED } from "@/lib/session";
+import { getSession, DEV_AUTH_BYPASSED, isAuthBypassHost } from "@/lib/session";
 import { STAFF_ADMIN_PERMISSION } from "@/lib/permissions";
 import { AuthButton } from "@/components/AuthButton";
 import "./globals.css";
@@ -42,6 +42,8 @@ const FOOTER_SECTIONS = [
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const session = await getSession();
+  // No sign-in on AUTH_BYPASS_HOSTS domains - see lib/session.ts.
+  const loginDisabled = isAuthBypassHost();
 
   return (
     <html lang="en" className={`${sans.variable} ${display.variable}`}>
@@ -88,9 +90,11 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                 </Link>
               )}
             </nav>
-            <div className="shrink-0">
-              <AuthButton signedIn={Boolean(session)} />
-            </div>
+            {!loginDisabled && (
+              <div className="shrink-0">
+                <AuthButton signedIn={Boolean(session)} />
+              </div>
+            )}
           </div>
         </header>
 
