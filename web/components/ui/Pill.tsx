@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 // Small rounded tag used for hero eyebrows and section labels - the "Premium
-// Roleplay" / "Next-Gen FiveM Roleplay" style badge, in FMRP's own colors.
+// Roleplay" / "Next-Gen FiveM Roleplay" style badge, in SAMRP's own colors.
 export function Pill({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <span
