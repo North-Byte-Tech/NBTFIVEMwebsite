@@ -79,15 +79,15 @@ export default async function HomePage() {
         <div className="relative z-10 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-steel">
           <span className="h-px w-8 bg-trooper-400" />
           <MapPin className="h-4 w-4 text-trooper-400" />
-          Florida Metro RP
+          San Andreas Metro RP
           <span className="h-px w-8 bg-trooper-400" />
         </div>
         <h1 className="relative z-10 max-w-5xl text-5xl font-semibold uppercase leading-[0.98] tracking-[0.06em] text-bone sm:text-7xl lg:text-8xl">
-          Florida
+          San Andreas
           <span className="mt-2 block text-gradient-brand">Metro RP</span>
         </h1>
         <p className="relative z-10 max-w-xl text-lg text-steel-300 sm:text-xl">
-          All-hazards roleplay. Covering Metro, Florida.
+          All-hazards roleplay. Covering Metro, San Andreas.
         </p>
         <div className="relative z-10 flex flex-wrap justify-center gap-3 pt-2">
           {session ? (
@@ -122,13 +122,13 @@ export default async function HomePage() {
       <section className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
         <div className="space-y-5">
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">About Florida Metro RP</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-trooper-300">About San Andreas Metro RP</p>
             <h2 className="max-w-2xl text-3xl text-bone sm:text-4xl">
-              An all-hazards community covering Metro, Florida.
+              An all-hazards community covering Metro, San Andreas.
             </h2>
           </div>
           <p className="max-w-2xl leading-7 text-muted">
-            Florida Metro RP is a FiveM roleplay community built around law enforcement, fire and rescue,
+            San Andreas Metro RP is a FiveM roleplay community built around law enforcement, fire and rescue,
             EMS, dispatch, and civilian life. Join a team, take part in shared scenes, and help shape the stories
             happening across the state.
           </p>
@@ -150,9 +150,9 @@ export default async function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 gap-4 p-5 sm:grid-cols-4">
             {[
-              ["Coverage", "Metro, FL"],
+              ["Coverage", "Metro, SA"],
               ["Focus", "All-hazards"],
-              ["Community", "FMRP"],
+              ["Community", "SAMRP"],
               ["Platform", "FiveM RP"],
             ].map(([label, value]) => (
               <div key={label} className="border-l border-trooper-400/70 pl-3">
